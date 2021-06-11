@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './widgets/user_transactions.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -12,15 +14,31 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// data is immutable and will never be reflected in the UI
 class MyHomePage extends StatelessWidget {
+  // String titleInput;
+  // String amountInput;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Flutter App'),
       ),
-      body: Center(
-        child: Text('Widget Playground!'),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            child: Card(
+              color: Colors.blue,
+              child: Text('Chart'),
+              elevation: 5,
+            ),
+          ),
+          UserTransactions(),
+        ],
       ),
     );
   }
